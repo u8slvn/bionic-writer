@@ -12,3 +12,15 @@ fn bionic_writer(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(sum_as_string, m)?)?;
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn internal() {
+        let result = sum_as_string(2, 2);
+        let expected = String::from("4");
+        assert_eq!(expected, result.unwrap());
+    }
+}

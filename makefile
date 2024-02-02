@@ -8,3 +8,11 @@ help: ## List all the command helps.
 init-pre-commit: ## Init pre-commit.
 	@pre-commit install
 	@pre-commit install --hook-type commit-msg
+
+.PHONY: test
+test: ## Run test.
+	@cargo test
+
+.PHONY: lint
+lint: ## Check linter.
+	@pre-commit run --all-files
