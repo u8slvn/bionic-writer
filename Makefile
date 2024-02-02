@@ -19,3 +19,7 @@ test: ## Run test.
 
 .PHONY: ci
 ci: lint test ## Run CI.
+
+.PHONY: dev
+dev: ## Build dev.
+	@maturin develop
