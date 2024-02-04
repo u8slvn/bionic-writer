@@ -1,22 +1,31 @@
 use pyo3::prelude::*;
 use rayon::prelude::*;
 use regex::Regex;
+use std::collections::HashMap;
 
-const RE_WORDS: &str = r"\w+|[^\w]|[\s]";
+#[macro_use]
+extern crate lazy_static;
 
-// fn load_regexen() -> HashMap<&str, Regex> {
-//     let mut regexen = HashMap::new();
-//     regexen.insert("words",  Regex::new(RE_WORDS).unwrap());
-//     Ok(regexen)
-// }
+lazy_static! {
+    static ref REGEXEN: HashMap<&'static str, Regex> = {
+        let mut m = HashMap::new();
+        m.insert("WORDS", Regex::new(r"\w+|[^\w]|[\s]").unwrap());
+        m.insert("WHITESPACE", Regex::new(r"\s").unwrap());
+        m
+    };
+}
 
 // Extract all words from the given text
 fn split_words(text: &str) -> Vec<&str> {
-    let re_words = Regex::new(RE_WORDS).unwrap();
+    let re_words = REGEXEN.get("WORDS").unwrap();
     re_words.find_iter(text).map(|m| m.as_str()).collect()
 }
 
 fn process_word(word: &str, affix: &str, postfix: &str) -> String {
+    if REGEXEN.get("WHITESPACE").unwrap().is_match(word) {
+        return word.to_string();
+    }
+
     let mid_word = word.len() / 2;
     let start = &word[..mid_word];
     let end = &word[mid_word..];
