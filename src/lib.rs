@@ -9,28 +9,40 @@ extern crate lazy_static;
 lazy_static! {
     static ref REGEXEN: HashMap<&'static str, Regex> = {
         let mut m = HashMap::new();
-        m.insert("WORDS", Regex::new(r"\w+|[^\w]|[\s]").unwrap());
-        m.insert("WHITESPACE", Regex::new(r"\s").unwrap());
+        m.insert("WORDS", Regex::new(r"\w+|\W|\s").unwrap());
+        m.insert("WHITESPACE", Regex::new(r"^\s$").unwrap());
+        m.insert("NUMBER", Regex::new(r"^\d$").unwrap());
+        m.insert("NON_WORD", Regex::new(r"^\W$").unwrap());
         m
     };
 }
 
-// Extract all words from the given text
+// Extract all words from the given text.
 fn split_words(text: &str) -> Vec<&str> {
     let re_words = REGEXEN.get("WORDS").unwrap();
     re_words.find_iter(text).map(|m| m.as_str()).collect()
 }
 
+// Format word to bionic reading style.
+fn format_word(word: &str, affix: &str, postfix: &str, index: usize) -> String {
+    let start = &word[..index];
+    let end = &word[index..];
+    format!("{}{}{}{}", affix, start, postfix, end)
+}
+
 fn process_word(word: &str, affix: &str, postfix: &str) -> String {
-    if REGEXEN.get("WHITESPACE").unwrap().is_match(word) {
+    if REGEXEN.get("WHITESPACE").unwrap().is_match(word)
+        || REGEXEN.get("NON_WORD").unwrap().is_match(word)
+    {
         return word.to_string();
     }
 
-    let mid_word = word.len() / 2;
-    let start = &word[..mid_word];
-    let end = &word[mid_word..];
+    if REGEXEN.get("NUMBER").unwrap().is_match(word) {
+        return format_word(word, affix, postfix, word.len());
+    }
 
-    format!("{}{}{}{}", affix, start, postfix, end)
+    let index = word.len() / 2;
+    format_word(word, affix, postfix, index)
 }
 
 #[pyfunction]
@@ -58,9 +70,22 @@ mod tests {
     fn test_split_words() {
         let text = "Your bones don't break, mine do. That's clear.";
 
-        let result: Vec<_> = split_words(text);
+        let result = split_words(text);
 
-        let expected: usize = 22;
+        let expected = 22;
         assert_eq!(expected, result.len());
+    }
+
+    #[test]
+    fn test_format_word() {
+        let word = "Hello";
+        let affix = "<b>";
+        let postfix = "</b>";
+        let index = 2;
+
+        let result = format_word(word, affix, postfix, index);
+
+        let expected = "<b>He</b>llo";
+        assert_eq!(expected, result);
     }
 }
