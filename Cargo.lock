@@ -25,6 +25,7 @@ dependencies = [
  "pyo3",
  "rayon",
  "regex",
+ "utf8_slice",
 ]
 
 [[package]]
@@ -318,6 +319,12 @@ name = "unindent"
 version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e1766d682d402817b5ac4490b3c3002d91dfa0d22812f341609f97b08757359c"
+
+[[package]]
+name = "utf8_slice"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "44109e280ecf0f5d8e6ee671c0ee650008275c51dc9e494badd11fb39d785408"
 
 [[package]]
 name = "windows-targets"
