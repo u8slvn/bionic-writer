@@ -31,6 +31,7 @@ fn format_word(word: &str, affix: &str, postfix: &str, index: usize) -> String {
     format!("{}{}{}{}", affix, start, postfix, end)
 }
 
+// Process word with bionic reading style.
 fn process_word(word: &str, affix: &str, postfix: &str) -> String {
     if REGEXEN.get("WHITESPACE").unwrap().is_match(word)
         || REGEXEN.get("NON_WORD").unwrap().is_match(word)
@@ -45,7 +46,7 @@ fn process_word(word: &str, affix: &str, postfix: &str) -> String {
 }
 
 #[pyfunction]
-fn write(text: &str, affix: &str, postfix: &str) -> PyResult<String> {
+pub fn write(text: &str, affix: &str, postfix: &str) -> PyResult<String> {
     let words: Vec<_> = split_words(text);
     let processed_words: Vec<_> = words
         .par_iter()
