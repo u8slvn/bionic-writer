@@ -16,6 +16,7 @@ lint: ## Check linter.
 .PHONY: test
 test: ## Run test.
 	@cargo test
+	@pytest
 
 .PHONY: ci
 ci: lint test ## Run CI.

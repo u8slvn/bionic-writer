@@ -46,7 +46,7 @@ fn process_word(word: &str, affix: &str, postfix: &str) -> String {
 }
 
 #[pyfunction]
-pub fn write(text: &str, affix: &str, postfix: &str) -> PyResult<String> {
+fn write(text: &str, affix: &str, postfix: &str) -> PyResult<String> {
     let words: Vec<_> = split_words(text);
     let processed_words: Vec<_> = words
         .par_iter()
