@@ -8,7 +8,7 @@ From: [bionic-reading.com/](https://bionic-reading.com/br-method/)
 
 > Bionic Reading® revises texts so that the most concise parts of words are highlighted. This guides the eye over the text and the brain remembers previously learned words more quickly. Save precious time. Gain advantages. Learn new things faster.
 
-Does Bionic Reading really speed-up your reading speed? According to this [paper](https://blog.readwise.io/bionic-reading-results/), probably not. Whatsoever it's still a nice screen reading technique that seems to help many people to stay focused during their reading session.
+Does Bionic Reading really speed-up your reading speed? According to this [paper](https://blog.readwise.io/bionic-reading-results/), probably not. Whatsoever it's still a nice screen reading technique that seems to help many people to stay focused during their reading sessions.
 
 ## Usage
 
