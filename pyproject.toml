@@ -15,7 +15,10 @@ dynamic = [
     "description",
     "license",
     "readme",
-    "version"
+    "version",
+    "repository",
+    "homepage",
+    "keywords",
 ]
 
 [tool.maturin]

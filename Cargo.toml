@@ -8,6 +8,11 @@ homepage = "https://github.com/u8slvn/bionic-writer"
 repository = "https://github.com/u8slvn/bionic-writer"
 readme = "README.md"
 license = "MIT"
+keywords = [
+    "bionic reading",
+    "json",
+    "dataclass",
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
