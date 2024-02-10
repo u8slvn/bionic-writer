@@ -1,5 +1,11 @@
 # Bionic Writer
 
+[![Pypi Version](https://img.shields.io/pypi/v/bionic-writer.svg)](https://pypi.org/project/bionic-writer/)
+[![Python Version](https://img.shields.io/pypi/pyversions/bionic-writer)](https://pypi.org/project/bionic-writer/)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/u8slvn/bionic-writer/ci.yml)](https://github.com/u8slvn/bionic-writer/actions/workflows/ci.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/u8slvn/bionic-writer)](https://app.codecov.io/gh/u8slvn/bionic-writer)
+[![Project license](https://img.shields.io/pypi/l/bionic-writer)](https://pypi.org/project/bionic-writer/)
+
 **Bio**nic **Wri**ter **i**s **a** **Pyt**hon **lib**rary **t**o **wr**ite **te**xt **wi**th **Bio**nic **Rea**ding **st**yle **f**or **a**ny **ki**nd **o**f **for**mat.
 
 ## About Bionic Reading method
