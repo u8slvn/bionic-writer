@@ -18,35 +18,43 @@ Does Bionic Reading really speed-up your reading speed? According to this [paper
 
 ## Usage
 
-### Install
-
+### Installation
 ```bash
 pip install bionic-writer
 ```
 
 ### Quickstart examples
 
+#### Write a Bionic Reading text in Markdown format:
+
 ```python
 import bionic_writer
 
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
-# Write a stylized Bionic Reading text in Markdown format.
 bionic_md = bionic_writer.write(text=text, affix="**", postfix="**")
 
-# Write a stylized Bionic Reading text in HTML format.
+print(bionic_md)
+```
+Output:
+
+```text
+**Lo**rem **ip**sum **do**lor **s**it **am**et, **conse**ctetur **adipi**scing **el**it.
+```
+
+#### Write a Bionic Reading text in HTML format:
+```python
+import bionic_writer
+
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
 bionic_html = bionic_writer.write(text=text, affix="<b>", postfix="</b>")
 
-print("Markdown:\n", bionic_md, "\n")
-print("HTML:\n", bionic_html)
+print(bionic_html)
 ```
 
 Output:
 
 ```text
-Markdown:
-**Lo**rem **ip**sum **do**lor **s**it **am**et, **conse**ctetur **adipi**scing **el**it.
-
-HTML:
 <b>Lo</b>rem <b>ip</b>sum <b>do</b>lor <b>s</b>it <b>am</b>et, <b>conse</b>ctetur <b>adipi</b>scing <b>el</b>it.
 ```
