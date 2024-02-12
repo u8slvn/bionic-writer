@@ -3,15 +3,15 @@ authors = ["u8slvn <u8slvn@gmail.com>"]
 name = "bionic-writer"
 version = "0.1.0"
 edition = "2021"
-description = ""
+description = "Write Bionic Reading text with Python."
 homepage = "https://github.com/u8slvn/bionic-writer"
 repository = "https://github.com/u8slvn/bionic-writer"
 readme = "README.md"
 license = "MIT"
 keywords = [
-    "bionic reading",
-    "json",
-    "dataclass",
+    "bionicreading",
+    "bionic-reading",
+    "text-formatter",
 ]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
